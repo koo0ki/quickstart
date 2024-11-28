@@ -16,7 +16,7 @@ check_status() {
 
 print_message "Обновление системы..."
 apt update
-apt install sudo gpg
+apt install sudo gpg -y
 check_status "Не удалось обновить систему"
 
 print_message "Установка MongoDB..."
