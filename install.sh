@@ -16,7 +16,7 @@ check_status() {
 
 print_message "Обновление системы..."
 apt update
-apt install sudo gpg build-essential -y
+apt install sudo gpg build-essential unzip -y
 check_status "Не удалось обновить систему"
 
 print_message "Установка MongoDB..."
@@ -54,8 +54,12 @@ npm install -g typescript
 check_status "Не удалось установить TypeScript"
 
 print_message "Установка PM2..."
-npm install -g pm2
+curl -fsSL https://bun.sh/install | bash
 check_status "Не удалось установить PM2"
+
+print_message "Установка Bun"
+nvm install 20
+check_status "Не удалось установить Bun"
 
 print_message "Проверка установленных компонентов:"
 echo "MongoDB: $(mongod --version | grep 'db version' | cut -d ' ' -f 3)"
