@@ -54,11 +54,12 @@ npm install -g typescript
 check_status "Не удалось установить TypeScript"
 
 print_message "Установка PM2..."
-curl -fsSL https://bun.sh/install | bash
+npm i pm2 -g
 check_status "Не удалось установить PM2"
 
 print_message "Установка Bun"
 nvm install 20
+curl -fsSL https://bun.sh/install | bash
 check_status "Не удалось установить Bun"
 
 print_message "Проверка установленных компонентов:"
